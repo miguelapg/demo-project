@@ -1,5 +1,5 @@
 {
-    "name": "multisafepay/drupal-commerce-docker",
+    "name": "miguelapg/drupal-commerce-docker",
     "description": "Commerce 2.3.x out of the box demonstration",
     "type": "project",
     "license": "GPL-2.0-or-later",
@@ -10,17 +10,13 @@
         }
     ],
     "repositories": {
-        "multisafepay/drupal-commerce-docker": {
+        "miguelapg/drupal-commerce-docker": {
             "type": "vcs",
-            "url": "https://github.com/MultiSafepay/drupal-commerce-docker"
+            "url": "https://github.com/miguelapg/drupal-commerce-docker"
         },
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        "multisafepay/drupal-demo-commerce-docker": {
-            "type": "vcs",
-            "url": "https://github.com/MultiSafepay/drupal-demo-commerce-docker"
         }
     },
     "config": {
@@ -28,7 +24,7 @@
         "discard-changes": true,
         "sort-packages": true,
         "platform": {
-            "php": "8.2"
+            "php": "8.1"
         },
         "allow-plugins": {
             "cweagans/composer-patches": true,
@@ -42,13 +38,12 @@
         }
     },
     "require": {
-        "php": ">=8.2",
+        "php": ">=8.1",
         "ext-curl": "*",
         "composer/installers": "^2.2.0",
         "cweagans/composer-patches": "^1.7.3",
         "drupal/core": "^10.2.6",
         "drupal/core-composer-scaffold": "^10.2.6",
-        "drupal-demo-commerce-docker": "dev-main",
         "drush/drush": "^12.5.2",
         "oomphinc/composer-installers-extender": "^2.0.0",
         "webflo/drupal-finder": "^1.3.0",
