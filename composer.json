@@ -1,0 +1,119 @@
+{
+    "name": "multisafepay/drupal-commerce-docker",
+    "description": "Commerce 2.3 out of the box demonstration",
+    "type": "project",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "",
+            "role": ""
+        }
+    ],
+    "repositories": {
+        "drupal-commerce-docker": {
+            "type": "vcs",
+            "url": "https://github.com/MultiSafepay/drupal-commerce-docker"
+        },
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "drupal-demo-commerce-docker": {
+            "type": "vcs",
+            "url": "https://github.com/MultiSafepay/drupal-demo-commerce-docker"
+        }
+    },
+    "config": {
+        "bin-dir": "bin",
+        "discard-changes": true,
+        "sort-packages": true,
+        "platform": {
+            "php": "8.2"
+        },
+        "allow-plugins": {
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "php-http/discovery": true,
+            "composer/installers": true,
+            "zaporylie/composer-drupal-optimizations": true,
+            "phpstan/extension-installer": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "oomphinc/composer-installers-extender": true
+        }
+    },
+    "require": {
+        "php": ">=8.2",
+        "ext-curl": "*",
+        "composer/installers": "^1.12",
+        "cweagans/composer-patches": "^1.7.3",
+        "drupal/core": "^10.2.6",
+        "drupal/core-composer-scaffold": "^10.2.6",
+        "drupal-demo-commerce-docker": "dev-main",
+        "drush/drush": "^12.5.2",
+        "oomphinc/composer-installers-extender": "^2.0.1",
+        "webflo/drupal-finder": "^1.3.0",
+        "webmozart/path-util": "^2.3.0"
+    },
+    "require-dev": {
+        "drupal/core-dev": "^10.2.6",
+        "zaporylie/composer-drupal-optimizations": "^1.2.0"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "classmap": [
+            "scripts/composer/ScriptHandler.php"
+        ]
+    },
+    "scripts": {
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold",
+        "pre-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "pre-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::checkComposerVersion"
+        ],
+        "post-install-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ],
+        "post-update-cmd": [
+            "DrupalProject\\composer\\ScriptHandler::createRequiredFiles"
+        ]
+    },
+    "extra": {
+        "patches": {
+        },
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "drupal-scaffold": {
+            "locations": {
+                "web-root": "web/"
+            }
+        },
+        "installer-paths": {
+            "web/core": [
+                "type:drupal-core"
+            ],
+            "web/libraries/{$name}": [
+                "type:drupal-library"
+            ],
+            "web/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "web/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "web/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ]
+        }
+    }
+}
